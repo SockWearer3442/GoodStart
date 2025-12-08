@@ -141,12 +141,12 @@ ul {
 }
 
 .hero-card--mid {
-  top: 38%;
+  top: 30%;
   right: 10%;
 }
 
 .hero-card--bottom {
-  bottom: 10%;
+  bottom: 9%;
   left: 25%;
 }
 
@@ -192,9 +192,9 @@ ul {
   box-shadow: 0 35px 65px rgba(249, 115, 22, 0.35);
 }
 
-.package-card--featured.package-card--active {
+/* .package-card--featured.package-card--active {
   box-shadow: 0 40px 85px rgba(249, 115, 22, 0.42);
-}
+} */
 
 .package-card--prev,
 .package-card--next {
