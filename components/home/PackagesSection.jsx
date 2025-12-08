@@ -16,6 +16,7 @@ const packages = [
       "Podstawowe SEO techniczne i analityka",
     ],
     cta: "Zamów Starter",
+    demoHref: "/demo-starter",
   },
   {
     name: "Biznes",
@@ -31,6 +32,7 @@ const packages = [
     ],
     cta: "Wybierz Biznes",
     highlighted: true,
+    demoHref: "/demo-biznes",
   },
   {
     name: "Sklep Mikro",
@@ -122,6 +124,11 @@ export default function PackagesSection() {
                 <a className="button" href="#kontakt">
                   {pack.cta}
                 </a>
+                {pack.demoHref ? (
+                  <a className="button button--ghost" href={pack.demoHref} target="_blank" rel="noreferrer">
+                    {`Strona z pakietu "${pack.name}"`}
+                  </a>
+                ) : null}
               </article>
             );
           })}
