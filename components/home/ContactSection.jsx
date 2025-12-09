@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useFormState, useFormStatus } from "react-dom";
-import { sendContact } from "../app/actions/sendContact";
+import { sendContact } from "../../app/actions/sendContact";
 
 const initialState = {
   ok: false,

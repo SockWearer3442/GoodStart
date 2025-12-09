@@ -26,9 +26,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="pl" className={urbanist.variable}>
-      <body>
-        <div className="app-wrapper">{children}</div>
-      </body>
+      <body>{children}</body>
     </html>
   );
 }
