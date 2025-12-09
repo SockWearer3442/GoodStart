@@ -1,3 +1,44 @@
+.offerList {
+  display: grid;
+  gap: 1.4rem;
+}
+
+.offerListWithGap {
+  margin-top: clamp(2.6rem, 4.8vw, 3.6rem);
+}
+
+.offerItem {
+  background: var(--biznes-surface);
+  border-radius: 20px;
+  padding: clamp(1.4rem, 3vw, 1.9rem);
+  border: 1px solid var(--biznes-border);
+  display: grid;
+  gap: 0.75rem;
+  box-shadow: 0 16px 32px rgba(29, 20, 40, 0.08);
+}
+
+.offerItem strong {
+  color: var(--biznes-strong);
+  font-size: 1.12rem;
+}
+
+.offerIdea {
+  border-style: dashed;
+  border-color: rgba(255, 61, 127, 0.45);
+  background: rgba(255, 61, 127, 0.06);
+}
+
+.offerIdeaActions {
+  margin-top: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+}
+
+.offerIdeaActions .navActionLink {
+  text-decoration: none;
+}
+
 .highlightsGrid {
   margin-bottom: clamp(2.2rem, 4vw, 3rem);
 }
@@ -272,7 +313,7 @@
 .sectionIntro span {
   text-transform: uppercase;
   letter-spacing: 0.14em;
-  font-size: 0.78rem;
+  font-size: 0.92rem;
   color: var(--biznes-accent);
   font-weight: 700;
 }
@@ -316,6 +357,7 @@
   opacity: 0;
   transform: scale(0.6);
   transition: opacity 0.4s ease, transform 0.4s ease;
+  pointer-events: none;
 }
 
 .card select,
@@ -428,6 +470,21 @@
   display: grid;
   gap: clamp(2.4rem, 4.8vw, 3.6rem);
   border: 1px solid var(--biznes-border);
+}
+
+.bookingShell {
+  display: grid;
+  gap: clamp(1.4rem, 3vw, 2rem);
+  padding: clamp(1.6rem, 4vw, 2.4rem);
+  border-radius: 28px;
+  border: 1px solid var(--biznes-border);
+  background: var(--biznes-surface);
+  box-shadow: 0 24px 50px rgba(31, 20, 39, 0.12);
+  margin-bottom: clamp(2.8rem, 5.5vw, 3.6rem);
+}
+
+.bookingShellButton {
+  justify-self: flex-start;
 }
 
 .bookingContent {
@@ -976,6 +1033,7 @@
   display: grid;
   gap: 1.4rem;
   grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-bottom: clamp(2.8rem, 5vw, 3.8rem);
 }
 
 .pricingCard {

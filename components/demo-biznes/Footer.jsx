@@ -18,6 +18,10 @@ export default function Footer() {
             <a href="/demo-biznes">Start</a>
             <a href="/demo-biznes/oferta">Oferta</a>
             <a href="/demo-biznes/realizacje">Realizacje</a>
+            <a href="/demo-biznes/rezerwacje">Rezerwacje</a>
+            <a href="https://www.google.com/maps/place/Pi%C4%99kna+15,+00-549+Warszawa" target="_blank" rel="noreferrer">
+              Zobacz naszą lokalizację
+            </a>
             <a href="/demo-biznes/blog">Blog</a>
             <a href="/demo-biznes/faq">FAQ</a>
           </div>
@@ -32,7 +36,7 @@ export default function Footer() {
           <div className={styles.footerResources}>
             <strong>Przydatne linki</strong>
             <a href="/demo-biznes/rezerwacje">Umów wizytę online</a>
-            <a href="https://maps.app.goo.gl/" target="_blank" rel="noreferrer">
+            <a href="https://www.google.com/maps/place/Pi%C4%99kna+15,+00-549+Warszawa" target="_blank" rel="noreferrer">
               Zobacz naszą lokalizację
             </a>
             <a href="mailto: kontakt@salon-elegancja.pl">Zapytaj o dostępne terminy</a>

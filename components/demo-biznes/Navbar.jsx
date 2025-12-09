@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/demo-biznes/rezerwacje", label: "Rezerwacje" },
   { href: "/demo-biznes/blog", label: "Blog" },
   { href: "/demo-biznes/faq", label: "FAQ" },
+  { href: "/demo-biznes/kontakt", label: "Kontakt" },
 ];
 
 export default function Navbar() {
@@ -43,9 +44,9 @@ export default function Navbar() {
           <Link href="/demo-biznes/rezerwacje" className={`${styles.navActionLink} ${styles.navActionPrimary}`}>
             📅 Zarezerwuj termin
           </Link>
-          <a href="tel:+48123456789" className={`${styles.navActionLink} ${styles.navActionGhost}`}>
-            ☎️ +48 123 456 789
-          </a>
+          <Link href="/demo-biznes/kontakt" className={`${styles.navActionLink} ${styles.navActionGhost}`}>
+            ✉️ Kontakt
+          </Link>
         </div>
       </div>
     </header>

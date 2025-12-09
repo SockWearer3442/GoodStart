@@ -6,19 +6,19 @@ const projects = [
     title: "Metamorfoza miejskiego stylu",
     summary: "Justyna marzyła o jaśniejszym blondzie i cięciu, które podkreśli jej rysy. Przygotowaliśmy plan rozjaśniania, pielęgnację Olaplex i stylizację na co dzień.",
     metrics: ["2 wizyty kontrolne", "Plan pielęgnacji na 6 tygodni", "Efekt: chłodny blond"],
-    image: "https://images.unsplash.com/photo-1490111718993-d98654ce6cf7?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1200&q=80",
   },
   {
     title: "Pakiet ślubny Oli",
     summary: "Próba fryzury, delikatne fale na ślub cywilny i upięcie na przyjęcie. Zadbałyśmy też o mamy i świadkową.",
     metrics: ["4 stylizacje w dniu ślubu", "Próba 3 tygodnie wcześniej", "Wsparcie stylistki mobilnej"],
-    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
   },
   {
     title: "Nowa energia dla Łukasza",
     summary: "Po konsultacji wykonaliśmy strzyżenie, pielęgnację brody i regenerację skóry głowy — idealne przed ważną prezentacją.",
     metrics: ["Strzyżenie + broda", "Zabieg detoksykujący", "Stylizacja z poradami do domu"],
-    image: "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1200&q=80",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=1200&q=80",
   },
 ];
 

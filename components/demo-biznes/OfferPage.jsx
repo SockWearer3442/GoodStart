@@ -56,7 +56,7 @@ export default function OfferPage() {
         align="left"
       />
 
-      <div className={styles.offerList}>
+      <div className={`${styles.offerList} ${styles.offerListWithGap}`}>
         {services.map((service) => (
           <article key={service.name} className={styles.offerItem}>
             <strong>{service.name}</strong>
@@ -70,6 +70,16 @@ export default function OfferPage() {
             </div>
           </article>
         ))}
+
+        <article className={`${styles.offerItem} ${styles.offerIdea}`}>
+          <strong>Mam pomysł</strong>
+          <p>Jeżeli masz własny, niestandardowy pomysł na metamorfozę albo potrzebujesz dedykowanej oferty, napisz do nas — wspólnie coś wykombinujemy.</p>
+          <div className={styles.offerIdeaActions}>
+            <a className={`${styles.navActionLink} ${styles.navActionGhost}`} href="/demo-biznes/kontakt">
+              ✉️ Przejdź do kontaktu
+            </a>
+          </div>
+        </article>
       </div>
 
     </div>

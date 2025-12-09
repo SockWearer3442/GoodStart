@@ -12,29 +12,6 @@ const initialState = {
   message: "",
 };
 
-const clientHighlights = [
-  {
-    icon: "🗺️",
-    title: "Zawsze trafisz pod właściwy adres",
-    description: "Włącz nawigację w Mapach Google i przyjedź prosto na ul. Piękną 15.",
-  },
-  {
-    icon: "⭐",
-    title: "Twoja opinia dużo znaczy",
-    description: "Po wizycie zostaw kilka słów – pomagają innym wybrać stylistkę, a nam rozwijać salon.",
-  },
-  {
-    icon: "🖼️",
-    title: "Zobacz efekty przed wizytą",
-    description: "Galeria w Google pokazuje metamorfozy i wnętrza salonu aktualizowane co tydzień.",
-  },
-  {
-    icon: "☎️",
-    title: "Kontakt w sekundę",
-    description: "Zadzwoń, napisz lub sprawdź wolne terminy bezpośrednio z wizytówki Google.",
-  },
-];
-
 const locationDetails = [
   {
     icon: "📍",
@@ -70,7 +47,7 @@ function SubmitButton() {
   );
 }
 
-export default function GBPSection() {
+export default function ContactPage() {
   const [state, formAction] = useFormState(sendContact, initialState);
   const serviceOptions = servicesPricing.map((service) => service.title);
 
@@ -85,22 +62,10 @@ export default function GBPSection() {
     <section className={`${styles.sectionWrapper} ${styles.gbpSection}`}>
       <SectionIntro
         eyebrow="Kontakt"
-        title="Gdzie nas znaleźć i jak wystawić opinię"
-        description="Znajdziesz nas w centrum Warszawy – a po wizycie możesz szybko zostawić recenzję i polecić stylistkę znajomym."
+        title="Gdzie nas znaleźć i jak się z nami skontaktować"
+        description="Znajdziesz nas w centrum Warszawy – umów termin, zapytaj o szczegóły lub daj znać, że chcesz zarezerwować stylistkę na ważną okazję."
         align="left"
       />
-
-      <div className={styles.locationHighlights}>
-        {clientHighlights.map((item) => (
-          <div key={item.title} className={styles.gbpItem}>
-            <span className={styles.gbpIcon}>{item.icon}</span>
-            <div>
-              <strong>{item.title}</strong>
-              <p>{item.description}</p>
-            </div>
-          </div>
-        ))}
-      </div>
 
       <div className={styles.locationGrid}>
         <div className={styles.locationDetails}>
@@ -188,6 +153,7 @@ export default function GBPSection() {
                   {service}
                 </option>
               ))}
+              <option value="inne">Inne / Mam pomysł</option>
             </select>
           </div>
         </div>

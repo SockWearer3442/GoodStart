@@ -19,9 +19,11 @@ const stylists = [
   { id: "anna", name: "Anna", specialty: "Koloryzacje blond" },
   { id: "ola", name: "Ola", specialty: "Stylizacje okolicznościowe" },
   { id: "lukasz", name: "Łukasz", specialty: "Strzyżenia męskie i broda" },
+  { id: "martyna", name: "Martyna", specialty: "Regeneracja i spa dla włosów" },
+  { id: "paulina", name: "Paulina", specialty: "Upięcia ślubne i wieczorowe" },
 ];
 
-const serviceOptions = servicesPricing.map((service) => service.title);
+const serviceOptions = servicesPricing.map(({ title, price }) => ({ title, price }));
 
 const timeslotsByDay = {
   "10": ["09:00", "10:30", "12:00", "14:30"],
@@ -35,7 +37,7 @@ const timeslotsByDay = {
 export default function RezerwacjePage() {
   const [selectedDay, setSelectedDay] = useState("18");
   const [selectedTimeslot, setSelectedTimeslot] = useState("15:30");
-  const [selectedService, setSelectedService] = useState(serviceOptions[0]);
+  const [selectedService, setSelectedService] = useState("");
   const [selectedStylist, setSelectedStylist] = useState(stylists[0].id);
 
   const availableSlots = useMemo(() => timeslotsByDay[selectedDay] ?? [], [selectedDay]);
@@ -62,6 +64,7 @@ export default function RezerwacjePage() {
         eyebrow="Krok 1"
         title="Wybierz termin, usługę i stylistkę"
         description="To tylko demonstracja – działający kalendarz będzie zsynchronizowany z grafikami zespołu i płatnościami online."
+        align="left"
       />
 
       <div className={styles.calendarShell}>
@@ -128,77 +131,79 @@ export default function RezerwacjePage() {
         eyebrow="Krok 2"
         title="Doprecyzuj usługę"
         description="W wersji produkcyjnej dostępne będą formularze płatności, integracja z Google Calendar i możliwość logowania do panelu klienta."
+        align="left"
       />
 
-      <form className={styles.bookingSection}>
-        <div className={styles.bookingContent}>
-          <div className={styles.cardGrid}>
-            <label className={styles.card}>
-              <span className={styles.cardIcon}>💇‍♀️</span>
-              <span>Usługa</span>
-              <select value={selectedService} onChange={(event) => setSelectedService(event.target.value)}>
-                {serviceOptions.map((service) => (
-                  <option key={service} value={service}>
-                    {service}
-                  </option>
-                ))}
-              </select>
-            </label>
+      <div className={styles.bookingShell}>
+        <div className={styles.cardGrid}>
+          <label className={styles.card}>
+            <span className={styles.cardIcon}>💇‍♀️</span>
+            <span>Usługa</span>
+            <select value={selectedService} onChange={(event) => setSelectedService(event.target.value)}>
+              <option value="" disabled>
+                Wybierz usługę z cennika
+              </option>
+              {serviceOptions.map((service) => (
+                <option key={service.title} value={service.title}>
+                  {service.title} — {service.price}
+                </option>
+              ))}
+            </select>
+          </label>
 
-            <label className={styles.card}>
-              <span className={styles.cardIcon}>👩‍🎨</span>
-              <span>Stylistka</span>
-              <select value={selectedStylist} onChange={(event) => setSelectedStylist(event.target.value)}>
-                {stylists.map((stylist) => (
-                  <option key={stylist.id} value={stylist.id}>
-                    {stylist.name} — {stylist.specialty}
-                  </option>
-                ))}
-              </select>
-            </label>
+          <label className={styles.card}>
+            <span className={styles.cardIcon}>👩‍🎨</span>
+            <span>Stylistka</span>
+            <select value={selectedStylist} onChange={(event) => setSelectedStylist(event.target.value)}>
+              {stylists.map((stylist) => (
+                <option key={stylist.id} value={stylist.id}>
+                  {stylist.name} — {stylist.specialty}
+                </option>
+              ))}
+            </select>
+          </label>
 
-            <div className={styles.card}>
-              <span className={styles.cardIcon}>🗓️</span>
-              <span>Wybrany termin</span>
-              <strong>{selectedDateLabel}</strong>
-              <p className={styles.calendarNote}>
-                W finalnej wersji systemu potwierdzisz wizytę jednym kliknięciem i otrzymasz mail z podsumowaniem.
-              </p>
-            </div>
+          <div className={styles.card}>
+            <span className={styles.cardIcon}>🗓️</span>
+            <span>Wybrany termin</span>
+            <strong>{selectedDateLabel}</strong>
+            <p className={styles.calendarNote}>
+              W finalnej wersji systemu potwierdzisz wizytę jednym kliknięciem i otrzymasz mail z podsumowaniem.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <SectionIntro
+        eyebrow="Krok 3"
+        title="Potwierdź rezerwację"
+        description="Podaj dane kontaktowe, abyśmy mogli przesłać Ci potwierdzenie wizyty i ewentualne pytania uzupełniające."
+        align="left"
+      />
+
+      <div className={styles.bookingShell}>
+        <div className={styles.bookingContactFields}>
+          <div className={styles.formField}>
+            <span>Imię i nazwisko*</span>
+            <input type="text" className={styles.input} placeholder="Jak mamy się z Tobą kontaktować?" required />
+          </div>
+          <div className={styles.formField}>
+            <span>E-mail*</span>
+            <input type="email" className={styles.input} placeholder="Adres do potwierdzenia rezerwacji" required />
+          </div>
+          <div className={styles.formField}>
+            <span>Telefon*</span>
+            <input type="tel" className={styles.input} placeholder="Numer, pod który zadzwonimy" required />
           </div>
         </div>
 
-        <div className={styles.bookingContent}>
-          <SectionIntro
-            eyebrow="Krok 3"
-            title="Potwierdź rezerwację"
-            description="Podaj dane kontaktowe, abyśmy mogli przesłać Ci potwierdzenie wizyty i ewentualne pytania uzupełniające."
-            align="left"
-          />
-
-          <div className={styles.bookingContactFields}>
-            <div className={styles.formField}>
-              <span>Imię i nazwisko*</span>
-              <input type="text" className={styles.input} placeholder="Jak mamy się z Tobą kontaktować?" required />
-            </div>
-            <div className={styles.formField}>
-              <span>E-mail*</span>
-              <input type="email" className={styles.input} placeholder="Adres do potwierdzenia rezerwacji" required />
-            </div>
-            <div className={styles.formField}>
-              <span>Telefon*</span>
-              <input type="tel" className={styles.input} placeholder="Numer, pod który zadzwonimy" required />
-            </div>
-          </div>
-
-          <button type="button" className={styles.primaryButton}>
-            Potwierdź rezerwację
-          </button>
-          <p className={styles.calendarNote}>
-            To przykładowa rezerwacja. W realnym wdrożeniu przycisk wykona proces w Calendesk z wysyłką maila i SMS.
-          </p>
-        </div>
-      </form>
+        <button type="button" className={`${styles.primaryButton} ${styles.bookingShellButton}`}>
+          Potwierdź rezerwację
+        </button>
+        <p className={styles.calendarNote}>
+          To przykładowa rezerwacja. W realnym wdrożeniu przycisk wykona proces w Calendesk z wysyłką maila i SMS.
+        </p>
+      </div>
     </div>
   );
 }
